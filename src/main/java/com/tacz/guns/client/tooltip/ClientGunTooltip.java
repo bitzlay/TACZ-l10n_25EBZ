@@ -170,9 +170,14 @@ public class ClientGunTooltip implements ClientTooltipComponent {
 
             double damage = AttachmentDataUtils.getDamageWithAttachment(gun, gunData);
             int bulletAmount = gunData.getBulletData().getBulletAmount();
+            int explosiveBulletAmount = gunData.getBulletData().getExplosiveBulletAmount();
             MutableComponent value;
-            if (display != null && display.getDamageStyle() == DamageStyle.PER_PROJECTILE && bulletAmount > 1) {
-                value = Component.literal(DAMAGE_FORMAT.format(damage/bulletAmount) + "x" + bulletAmount).withStyle(ChatFormatting.AQUA);
+            if (display != null && display.getDamageStyle() == DamageStyle.PER_PROJECTILE && (bulletAmount > 1 || explosiveBulletAmount > 1)) {
+                if (explosiveBulletAmount > 1) {
+                    value = Component.literal(DAMAGE_FORMAT.format(damage/explosiveBulletAmount) + "x" + explosiveBulletAmount).withStyle(ChatFormatting.RED);
+                } else {
+                    value = Component.literal(DAMAGE_FORMAT.format(damage/bulletAmount) + "x" + bulletAmount).withStyle(ChatFormatting.AQUA);
+                }
             } else {
                 value = Component.literal(DAMAGE_FORMAT.format(damage)).withStyle(ChatFormatting.AQUA);
             }

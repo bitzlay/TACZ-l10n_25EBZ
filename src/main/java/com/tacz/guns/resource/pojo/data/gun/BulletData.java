@@ -10,6 +10,7 @@ public class BulletData {
     @SerializedName("bullet_amount")
     private int bulletAmount = 1;
 
+
     @SerializedName("damage")
     private float damageAmount = 5;
 
@@ -45,6 +46,7 @@ public class BulletData {
     @SerializedName("block_damage")
     private int blockDamage = 100;
 
+
     public float getLifeSecond() {
         return lifeSecond;
     }
@@ -53,12 +55,15 @@ public class BulletData {
         return bulletAmount;
     }
 
+
     public float getDamageAmount() {
         return damageAmount;
     }
     public int getBlockDamage() {
         return blockDamage;
     }
+
+
 
     @Nullable
     public ExtraDamage getExtraDamage() {

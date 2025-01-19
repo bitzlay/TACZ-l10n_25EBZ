@@ -24,6 +24,8 @@ public class GunData {
     @SerializedName("ammo")
     private ResourceLocation ammoId = null;
 
+
+
     @SerializedName("ammo_amount")
     private int ammoAmount = 30;
 
@@ -109,9 +111,13 @@ public class GunData {
         return ammoId;
     }
 
+
+
     public int getAmmoAmount() {
         return ammoAmount;
     }
+
+
 
     public int @Nullable [] getExtendedMagAmmoAmount() {
         return extendedMagAmmoAmount;

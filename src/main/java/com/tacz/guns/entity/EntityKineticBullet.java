@@ -101,6 +101,7 @@ public class EntityKineticBullet extends Projectile implements IEntityAdditional
     public static final String TRACER_SIZE_OVERRIDER_KEY = GunMod.MOD_ID + ":tracer_size";
 
     private ResourceLocation ammoId = DefaultAssets.EMPTY_AMMO_ID;
+
     private int life = 200;
     private float speed = 1;
     private float gravity = 0;
@@ -110,6 +111,8 @@ public class EntityKineticBullet extends Projectile implements IEntityAdditional
     private float knockback = 0;
     private boolean explosion = false;
     private int blockDamage;
+
+
     private boolean igniteEntity = false;
     private boolean igniteBlock = false;
     private int igniteEntityTime = 2;
@@ -199,6 +202,7 @@ public class EntityKineticBullet extends Projectile implements IEntityAdditional
         this.gunId = gunId;
         this.gunDisplayId = gunDisplayId;
     }
+
 
     @Override
     protected void defineSynchedData() {
@@ -435,10 +439,14 @@ public class EntityKineticBullet extends Projectile implements IEntityAdditional
 
         if(blockState.getBlock() instanceof StructureBlock structureBlock){
             BlockPos masterPos = structureBlock.getMasterPos(level, pos, blockState);
-        if(DamageBlockSaveData.get(level()).damageBlock(getCommandSenderWorld(), pos, (int) blockDamage)<=0) {
-            getCommandSenderWorld().destroyBlock(pos, true);
-            DamageBlockSaveData.get(level()).removeBlock(pos);
-        }}
+            if(DamageBlockSaveData.get(level()).damageBlock(getCommandSenderWorld(), pos, (int) blockDamage)<=0) {
+                getCommandSenderWorld().destroyBlock(pos, true);
+                DamageBlockSaveData.get(level()).removeBlock(pos);
+            }
+
+
+        }
+
 
 
 

@@ -2,7 +2,6 @@ package com.tacz.guns.event;
 
 import com.tacz.guns.api.item.IGun;
 import com.tacz.guns.config.common.GunConfig;
-import com.tacz.guns.item.ModernKineticGunScriptAPI;
 import com.tacz.guns.resource.pojo.data.gun.FeedType;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

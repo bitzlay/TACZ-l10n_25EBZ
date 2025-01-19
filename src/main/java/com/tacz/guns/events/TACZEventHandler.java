@@ -1,4 +1,4 @@
-package com.tacz.guns.events;
+/*package com.tacz.guns.events;
 
 import com.starspath.justwalls.Config;
 import com.starspath.justwalls.blocks.abstracts.StructureBlock;
@@ -90,3 +90,4 @@ public class TACZEventHandler {
         }
     }
 }
+*/
